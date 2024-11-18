@@ -10,6 +10,8 @@ LABEL org.opencontainers.image.licenses="GPL-3.0"
 
 ARG HOMEBRIDGE_APT_PKG_VERSION
 ARG FFMPEG_VERSION
+ARG S6_ARCH='aarch64'
+ARG DEB_ARCH='arm64'
 
 ENV HOMEBRIDGE_APT_PKG_VERSION=${HOMEBRIDGE_APT_PKG_VERSION:-v1.2.1}
 ENV FFMPEG_VERSION=${FFMPEG_VERSION:-v2.1.1}
@@ -76,7 +78,7 @@ RUN case "$(uname -m)" in \
 
 COPY rootfs /
 
-EXPOSE 8581/tcp
+# EXPOSE 8581/tcp
 VOLUME /homebridge
 WORKDIR /homebridge
 
